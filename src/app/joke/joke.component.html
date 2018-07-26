@@ -1,7 +1,8 @@
-<p>
-  joke works!
-</p>
 <div class="joke">
-  <h1>{{setup}}</h1>
-  <h2>{{punchline}}</h2>
+  <div *ngIf="joke.hide">
+    <h2>{{joke.setup}}</h2>
+    <p>{{joke.punchline}}</p>
+  </div>
+  <button class="btn btn-primary" (click)="joke.toggle()">{{joke.hide? 'Hide':'Show'}}</button>
+  <button class="btn btn-danger ml-3" (click)="deleteJoke(index)">Delete</button>
 </div>
