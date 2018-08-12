@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Joke } from '../models/joke';
+import {SimpleService} from '../simple.service';
 
 @Component({
   selector: 'app-joke-list',
@@ -7,23 +7,11 @@ import { Joke } from '../models/joke';
   styleUrls: ['./joke-list.component.css']
 })
 export class JokeListComponent implements OnInit {
-  jokelist: Array<Joke>;
+  simpleService: SimpleService;
 
-  constructor() {
-    this.jokelist=[
-      new Joke('obj #1', 'punchline #1'),
-      new Joke('obj #2', 'punchline #2'),
-      new Joke('obj #3', 'punchline #3')
-    ];
-   }
+  constructor(private simpleService: SimpleService) { }
 
   ngOnInit() {
   }
 
-  addNewJoke(val: Joke){
-    this.jokelist.unshift(val);
-  }
-  deleteJoke(index:number){
-    this.jokelist.splice(index,1);
-  }
 }

@@ -1,10 +1,10 @@
 <div class="container">
   <br>
-  <app-joke-form (jokeCreated)="addNewJoke($event)"></app-joke-form>
+  <app-joke-form (jokeCreated)="simpleService.addNewJoke($event)"></app-joke-form>
   <br>
   <!--  <app-joke [joke]="jokelist[0]"></app-joke> -->
-  <app-joke (deletedJoke)="deleteJoke($event)"
-    *ngFor="let joke of jokelist; index as i"
+  <app-joke (deletedJoke)="simpleService.deleteJoke($event)"
+    *ngFor="let joke of simpleService.jokelist; index as i"
      [joke]="joke"
      [index]="i">
   </app-joke>
