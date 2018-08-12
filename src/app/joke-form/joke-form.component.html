@@ -1,11 +1,34 @@
 <div class="container">
-  <div class="form-group">
-    <input class="form-control" type="text" placeholder="setup" #setup>
-  </div>
-  <div class="form-group">
-    <input class="form-control" type="text" placeholder="punchline" #punchline>
-  </div>
-  <div>
-    <button class="btn btn-primary" (click)="addJoke(setup.value, punchline.value)" >Add</button>
-  </div>
+  <form #f="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <input class="form-control" type="text" placeholder="setup"
+             [ngClass]="{
+          'is-invalid': setup.invalid && (setup.dirty || setup.touched),
+          'is-valid': setup.valid && setup.dirty}"
+             required name="setup" [(ngModel)]="joke.setup" #setup="ngModel">
+
+      <div class="invalid-feedback" *ngIf="setup.invalid && (setup.dirty || setup.touched)">
+        <div *ngIf="setup.errors.required" >
+          Email is required
+        </div>
+      </div>
+
+    </div>
+    <div class="form-group">
+      <input class="form-control" type="text" placeholder="punchline"
+             [ngClass]="{
+          'is-invalid': setup.invalid && (setup.dirty || setup.touched),
+          'is-valid': setup.valid && setup.dirty}"
+             required name="punchline" [(ngModel)]="joke.punchline" #punchline="ngModel">
+      <div class="invalid-feedback" *ngIf="punchline.invalid && (punchline.dirty || punchline.touched)">
+        <div *ngIf="punchline.errors.required" >
+          Email is required
+        </div>
+      </div>
+    </div>
+    <div>
+     <!-- <button class="btn btn-primary" (click)="addJoke(setup.value, punchline.value)" >Add</button>-->
+      <button class="btn btn-primary">Add</button>
+    </div>
+  </form>
 </div>
