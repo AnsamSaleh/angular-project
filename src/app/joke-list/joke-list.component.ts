@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {SimpleService} from '../simple.service';
+import {SimpleScerviceService} from '../service/simple-scervice.service';
 
 @Component({
   selector: 'app-joke-list',
@@ -7,11 +7,11 @@ import {SimpleService} from '../simple.service';
   styleUrls: ['./joke-list.component.css']
 })
 export class JokeListComponent implements OnInit {
-  simpleService: SimpleService;
+  simple: SimpleScerviceService;
 
-  constructor(private simpleService: SimpleService) { }
+  constructor(private simple: SimpleScerviceService) {
+   }
 
   ngOnInit() {
   }
-
 }

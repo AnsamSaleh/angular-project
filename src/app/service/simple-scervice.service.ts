@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-import {Joke} from './models/joke';
+import {Joke} from '../models/joke';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SimpleService {
-  jokelist: Array<Joke>;
+export class SimpleScerviceService {
+  jokelist : Array<Joke>;
 
   constructor() {
-    this.jokelist=[
+    this.jokelist= [
       new Joke('obj #1', 'punchline #1'),
       new Joke('obj #2', 'punchline #2'),
       new Joke('obj #3', 'punchline #3')
